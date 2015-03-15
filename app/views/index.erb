@@ -1,0 +1,48 @@
+<div>
+    <div ng-repeat="rows in viewCrockPots">
+      <div class="row wide-row">
+        <div ng-repeat="item in rows | orderBy: 'price'">
+          <div class="large-4 medium-4 columns">
+            <div class="row">
+              <div class="large-12 columns image-box">
+                <img class="item-image" src="images/crockpots/{{item.asin}}.jpg">
+              </div>
+            </div>
+            <div class="first-item-box">
+              <div class="row">
+                <div class="large-12 columns item-title-box">
+                  <a href="http://www.amazon.com/gp/product/{{item.asin}}/ref=as_li_tf_il?ie=UTF8&camp=1789&creative=9325&creativeASIN={{item.asin}}&linkCode=as2&tag=crockpotmarket-20"><h4 class="item-title">{{item.name}}</h4></a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="large-12 columns item-price-box">
+                  <p class="item-price">{{item.price | currency}}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="large-12 columns">
+                  <p class="item-rating">Rating: {{item.rating}}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="large-12 columns">
+                  <p class="item-rating">Capacity: {{item.capacity}} Quarts</p>
+                </div>
+              </div>
+            </div>
+            <div class="second-item-box">
+              <div class="row">
+                <div class="large-12 columns item-bullets-box">
+                  <ul class="item-bullets-list">
+                    <div ng-repeat="bullet in item.bullets">
+                      <li class="item-bullet">{{bullet}}</li>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

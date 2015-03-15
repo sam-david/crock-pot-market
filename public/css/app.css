@@ -1,0 +1,135 @@
+/* ----------Color Scheme---------- */
+/*
+Cherry Cheesecake
+Red:B9121B
+Brown: 4C1B1B
+Tan: F6E497
+Light grey: FCFAE1
+light brown: BD8D46
+
+Dolores:
+Light mustard: E8E595
+Mustard: D0A825
+Blue: 40627C
+Dark Blue/green: 26393D;
+Beige: FFFAE4;
+
+*/
+
+body {
+  background-color: #FFFAE4;
+}
+
+.row {
+  max-width: 70rem !important;
+}
+
+.wide-row {
+  max-width: 90rem !important;
+}
+
+.header {
+  /*position: fixed;
+  top: 0;
+  left: 0;*/
+  width: 22%;
+  height: 100%;
+  z-index: 100;
+  background-color: #26393D;
+}
+
+.header-text {
+  text-align: center;
+  font-size: 1.8em;
+  color: #D0A825;
+  font-family: 'Pacifico', cursive;
+  padding-top: 2%;
+}
+
+.page-content {
+  width: 75%;
+}
+
+.list-header-text {
+  color: #40627C;
+  font-size: 1.5em;
+}
+
+.list-text {
+  color: #D0A825;
+  list-style-type: none;
+  text-decoration: underline;
+}
+
+.image-box {
+  margin-top: 10%;
+  text-align: center;
+}
+
+.item-image {
+  border-top: solid #33332D 2px;
+  border-left: solid #33332D 2px;
+  border-right: solid #33332D 2px;
+  width: 100%;
+}
+
+.item-title-box {
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.item-title {
+  font-size: .9em;
+  padding: 2%;
+  text-decoration: underline;
+  margin-bottom: 0px;
+  color: rgb(32,23,23);
+}
+
+.item-price-box {
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.item-price {
+  
+  font-size: 1.3em;
+  margin-bottom: 0px;
+}
+
+.item-rating {
+  margin-bottom: 0px;
+  padding-left: 5%;
+}
+
+.item-bullets-box {
+  /*padding: 2%;*/
+}
+
+.item-bullets-list {
+  margin-left: 1.5rem;
+}
+
+.item-bullet {
+  padding: 1%;
+  font-size: .7em;
+}
+
+.first-item-box{
+  border: solid #33332D 2px;
+  width: 100%;
+}
+
+.second-item-box {
+  border-bottom: solid #33332D 2px;
+  border-left: solid #33332D 2px;
+  border-right: solid #33332D 2px;
+}
+
+@media only screen and (max-width: 40em) {
+  .header {
+    height: 25%;
+    width: 100%;
+  }
+
+}
