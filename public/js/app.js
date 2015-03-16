@@ -15,7 +15,7 @@ function($scope, $log, $http){
       success(function(data, status, headers, config) {
         console.log(data, status);
         $scope.allCrockPots = data;
-        $scope.splitIntoColumns(data);
+        $scope.formatToView(data);
         // $scope.crockPots = data;
       }).
       error(function(data, status, headers, config) {
@@ -23,12 +23,42 @@ function($scope, $log, $http){
       });
   }
   $scope.init();
+  $scope.formatToView = function(data) {
+    dataWithRatings = $scope.appendRatingStars(data);
+    dataWithCapacityImages = $scope.appendCapacityImages(dataWithRatings);
+    $scope.splitIntoColumns(dataWithCapacityImages);
+  }
+  $scope.appendRatingStars = function(productData) {
+    for (var i = 0; i < productData.length; i++) {
+      if (productData[i].rating >= 4.7) {
+        productData[i].ratingStars = ["images/full-star.png","images/full-star.png","images/full-star.png","images/full-star.png","images/full-star.png"];
+      } else if (productData[i].rating < 4.7 && productData[i].rating >= 4.3) {
+        productData[i].ratingStars = ["images/full-star.png","images/full-star.png","images/full-star.png","images/full-star.png","images/half-star.png"];
+      } else if (productData[i].rating < 4.3 && productData[i].rating >= 3.7) {
+        productData[i].ratingStars = ["images/full-star.png","images/full-star.png","images/full-star.png","images/full-star.png","images/empty-star.png"];
+      }
+    }
+    return productData;
+  }
+  $scope.appendCapacityImages = function(productData) {
+    for (var i = 0; i < productData.length; i++) {
+      productData[i].capacityImages = [];
+      for (var j = 1; j <= productData[i].capacity; j++) {
+        productData[i].capacityImages.push("images/full-quart.png");
+      }
+      if (productData[i].capacity % 1 === .5 ) {
+        productData[i].capacityImages.push("images/half-quart.png");
+      }
+    }
+    return productData;
+  }
   $scope.splitIntoColumns = function(data) {
     var newArray = []
     for (i = 0; i < data.length; i += 3) {
       newArray.push(data.slice(i, i+3));
     }
     $scope.viewCrockPots = newArray;
+    console.log("original data", data , "split data" ,newArray)
   }
   $scope.getAllProducts = function() {
      $scope.splitIntoColumns($scope.allCrockPots);
@@ -49,18 +79,25 @@ function($scope, $log, $http){
     }
     $scope.splitIntoColumns(brandArray);
   }
-  $scope.sortByBrand = function(brand) {
-    var sortByPriceArray = data.sort(function(a, b) {
-          if (a.price < b.price) {
+  $scope.sortByBrand = function() {
+    console.log("Brand Sorting")
+    var brandArray = [];
+    for (var i = 0; i < $scope.viewCrockPots.length; i++) {
+      for (var j = 0; j < $scope.viewCrockPots[i].length; j++) {
+        brandArray.push($scope.viewCrockPots[i][j]);
+      }
+    }
+    var sortByBrandArray = brandArray.sort(function(a, b) {
+          if (a.brand > b.brand) {
             return 1;
           }
-          if (a.price > b.price) {
+          if (a.brand < b.brand) {
             return -1;
           }
           // a must be equal to b
           return 0;
     });
-    $scope.splitIntoColumns(sortByPriceArray);
+    $scope.splitIntoColumns(sortByBrandArray);
   }
   $scope.selectByCapacity = function(cap) {
     var capacityArray = [];

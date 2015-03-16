@@ -1,7 +1,7 @@
 <div>
     <div ng-repeat="rows in viewCrockPots">
       <div class="row wide-row">
-        <div ng-repeat="item in rows | orderBy: 'price'">
+        <div ng-repeat="item in rows">
           <div class="large-4 medium-4 columns">
             <div class="row">
               <div class="large-12 columns image-box">
@@ -21,12 +21,20 @@
               </div>
               <div class="row">
                 <div class="large-12 columns">
-                  <p class="item-rating">Rating: {{item.rating}}</p>
+                  <p class="item-rating">Rating:</p>
+                  <div class="star-box" ng-repeat="star in item.ratingStars track by $index">
+                    <img class="star-image" src="{{star}}">
+                  </div>
+                  <p class="item-rating">{{item.rating}}</p>
                 </div>
               </div>
               <div class="row">
                 <div class="large-12 columns">
-                  <p class="item-rating">Capacity: {{item.capacity}} Quarts</p>
+                  <p class="item-rating">Capacity:</p>
+                  <div class="capacity-box" ng-repeat="quart in item.capacityImages track by $index">
+                    <img class="quart-image" src="{{quart}}">
+                  </div>
+                  <p class="item-rating">{{item.capacity}}</p>
                 </div>
               </div>
             </div>

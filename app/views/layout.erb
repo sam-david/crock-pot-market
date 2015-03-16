@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/foundation.css">
   <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Comfortaa:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/css/app.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -27,9 +28,9 @@
         <div class="row">
           <div class="large-12 columns">
             <h1 class="list-header-text">Brands</h1>
-            <ul>
-              <li class="list-text" ng-click="getAllProducts()"><a>All</a></li>
-              <li class="list-text" ng-click="selectByBrand('Crock-Pot')"><a>Crock-Pot</a></li>
+            <ul class="brands-list">
+              <li class="list-text" ng-click="getAllProducts()">All</li>
+              <li class="list-text" ng-click="selectByBrand('Crock-Pot')">Crock-Pot</li>
               <li class="list-text" ng-click="selectByBrand('Hamilton Beach')">Hamilton Beach</li>
               <li class="list-text" ng-click="selectByBrand('Breville')">Breville</li>
               <li class="list-text" ng-click="selectByBrand('Cuisinart')">Cuisinart</li>
@@ -39,20 +40,20 @@
         </div>
         <div class="row">
           <div class="large-12 columns">
-            <h1 class="list-header-text">Sizes (Quarts)</h1>
+            <h1 class="list-header-text">Capacity <span class="small-header-text"></span></h1>
             <ul>
-              <li class="list-text" ng-click="selectByCapacity('large')">7+</li>
-              <li class="list-text" ng-click="selectByCapacity('medium')">5-6</li>
-              <li class="list-text" ng-click="selectByCapacity('small')">Less than 4</li>
+              <li class="list-text" ng-click="selectByCapacity('large')">> 7 Quarts</li>
+              <li class="list-text" ng-click="selectByCapacity('medium')">5-6.5 Quarts</li>
+              <li class="list-text" ng-click="selectByCapacity('small')">< 4 Quarts</li>
             </ul>
           </div>
         </div>
         <div class="row">
           <div class="large-12 columns">
-            <h1 class="list-header-text">Sort By:</h1>
+            <h1 class="list-header-text">-Sort By-</h1>
             <ul>
-              <li class="list-text">Brand</li>
-              <li ng-click"console.log('poop')" class="list-text">Size</li>
+              <li class="list-text" ng-click="sortByBrand()">Brand</li>
+              <li class="list-text" ng-click="console.log('poop')" >Size</li>
               <li class="list-text"><a ng-click="sortProduct('price')">Price</a></li>
               <li class="list-text">Rating</li>
             </ul>
@@ -61,6 +62,10 @@
       </div>
       <div class="large-9 small-12 columns page-content">
       <%= yield %>
+        <div class="row">
+          <h2>Description</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lorem nunc, scelerisque faucibus feugiat sed, sagittis vel magna. Aenean in elementum est. Proin aliquam ac orci a laoreet. In ullamcorper, erat quis finibus accumsan, elit libero viverra nisl, eget luctus nunc augue et tortor. Mauris sed mollis ex. Suspendisse ac vestibulum ex, id sagittis felis. Maecenas faucibus neque quis rutrum varius.</p>
+        </div>
       </div>
     </div>
   </div>

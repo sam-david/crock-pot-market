@@ -53,12 +53,25 @@ body {
 .list-header-text {
   color: #40627C;
   font-size: 1.5em;
+  text-align: center;
+  font-family: 'Comfortaa', cursive;
 }
+
+.small-header-text {
+  font-size: .5em;
+}
+
 
 .list-text {
   color: #D0A825;
   list-style-type: none;
   text-decoration: underline;
+  padding-left: 5%;
+}
+
+.list-text:hover {
+  color: #E8E595;
+  cursor: pointer;
 }
 
 .image-box {
@@ -83,7 +96,8 @@ body {
   padding: 2%;
   text-decoration: underline;
   margin-bottom: 0px;
-  color: rgb(32,23,23);
+  color: #40627C;
+  font-weight: bold;
 }
 
 .item-price-box {
@@ -99,9 +113,27 @@ body {
 
 .item-rating {
   margin-bottom: 0px;
-  padding-left: 5%;
+  padding-left: 2%;
+  padding-right: 2%;
+  float: left;
 }
 
+.star-box {
+  float: left;
+}
+
+.star-image {
+  float: left;
+}
+
+.capacity-box {
+  float: left;
+  width: 8%;
+  padding-top: 1%;
+}
+.quart-image {
+  float: left;
+}
 .item-bullets-box {
   /*padding: 2%;*/
 }
@@ -111,7 +143,7 @@ body {
 }
 
 .item-bullet {
-  padding: 1%;
+  padding: 2%;
   font-size: .7em;
 }
 
